@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+#应用名称
+spring:
+  dubbo:
+    application:
+      name: consumer-server
+    #注册中心地址
+    protocol:
+      name: dubbo
+    registry:
+      address: zookeeper://192.168.0.121:2181 #?backup=127.0.0.1:2180,127.0.0.1:2182
+    #调用dubbo组建扫描的项目路径
+    scan: com.consumer.controller
+    #telnet端口
+    qos:
+      port: 22223
+#检查服务是否可用默认为true，不可用时抛出异常，阻止spring初始化，为方便部署，可以改成false
+    consumer:
+      check: false
+
+#rpc:
+#  registry_address: 192.168.0.121:2181
+#dubbos:
+#  provider:
+#    timeOut: 60000
+#    retries: 0
+#  brand:
+#    port: 20880
